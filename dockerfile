@@ -18,7 +18,9 @@ ENV BINARY=BINARY
 
 WORKDIR /app/go
 
-COPY go.mod go.sum ./
+COPY go.mod .
+
+COPY go.sum .
 
 RUN go mod download
 
