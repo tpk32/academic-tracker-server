@@ -6,7 +6,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/joho/godotenv"
+	//"github.com/joho/godotenv"
 	"github.com/tpk32/academic-tracker-server/db"
 	"github.com/tpk32/academic-tracker-server/router"
 	"github.com/tpk32/academic-tracker-server/services"
@@ -37,10 +37,10 @@ func(app *Application) Serve() error{
 }
 
 func main(){
-	err := godotenv.Load()
-	if(err != nil){
-		log.Fatal("Error loading .env file in main")
-	}
+	// err := godotenv.Load()
+	// if(err != nil){
+	// 	log.Fatal("Error loading .env file in main")
+	// }
 
 	cfg := Config{
 		Port: os.Getenv("PORT"),
