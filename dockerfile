@@ -7,6 +7,7 @@ ARG PASSWORD
 ARG HOST
 ARG DB_PORT
 ARG BINARY
+ARG PORT
 
 #set env variables to use in this dockerfile
 ENV DB_NAME=DB_NAME
@@ -15,6 +16,7 @@ ENV PASSWORD=PASSWORD
 ENV HOST=HOST
 ENV DB_PORT=DB_PORT
 ENV BINARY=BINARY
+ENV PORT=PORT
 
 WORKDIR /app
 
@@ -29,7 +31,7 @@ COPY . .
 #install migrate-CLI for migrations
 RUN go install -tags 'postgres' github.com/golang-migrate/migrate/v4/cmd/migrate@latest
 
-EXPOSE 3000
+EXPOSE 8080
 # This command is not using BINARY variable so added it directly to CMD
 #RUN go build -o ${BINARY} cmd/server/main.go 
 
