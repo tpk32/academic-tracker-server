@@ -40,7 +40,7 @@ services:
       - db
     ports:
       - 8080:8080
-    #command: ./wait-for-it.sh db:5432 && migrate -path=migrations -database="postgres://${USER}:${PASSWORD}@${HOST}:${DB_PORT}/${DB_NAME}?sslmode=disable" -verbose up && ./${BINARY}
+    command: ./wait-for-it.sh db:5432 && migrate -path=migrations -database="postgres://${USER}:${PASSWORD}@${HOST}:${DB_PORT}/${DB_NAME}?sslmode=disable" -verbose up && ./${BINARY}
 
   db:
     container_name: academic_tracker_db_container
