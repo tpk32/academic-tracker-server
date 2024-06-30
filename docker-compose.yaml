@@ -7,7 +7,7 @@ services:
     image: go-academic-tracker
     build:
       context: .
-      dockerfile: ./go_backend/Dockerfile
+      dockerfile: dockerfile
       args:
         DB_NAME: ${DB_NAME}
         USER: ${USER}
