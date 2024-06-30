@@ -29,6 +29,7 @@ COPY . .
 #install migrate-CLI for migrations
 RUN go install -tags 'postgres' github.com/golang-migrate/migrate/v4/cmd/migrate@latest
 
+EXPOSE 3000
 # This command is not using BINARY variable so added it directly to CMD
 #RUN go build -o ${BINARY} cmd/server/main.go 
 
