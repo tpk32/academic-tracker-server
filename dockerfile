@@ -29,8 +29,9 @@ COPY . .
 #install migrate-CLI for migrations
 RUN go install -tags 'postgres' github.com/golang-migrate/migrate/v4/cmd/migrate@latest
 
-RUN go build -o ${BINARY} cmd/server/main.go 
+# This command is not using BINARY variable so added it directly to CMD
+#RUN go build -o ${BINARY} cmd/server/main.go 
 
 #Railway doesn't support docker-compose so can't use wait-for-it, is compose is available, uncomment following CMD and comment the last CMD
 #CMD ./wait-for-it.sh db:5432 && migrate -path=migrations -database="postgres://${USER}:${PASSWORD}@${HOST}:${DB_PORT}/${DB_NAME}?sslmode=disable" -verbose up && ./${BINARY}
-CMD migrate -path=migrations -database="postgres://${USER}:${PASSWORD}@${HOST}:${DB_PORT}/${DB_NAME}" -verbose up && ./${BINARY}
+CMD migrate -path=migrations -database="postgres://${USER}:${PASSWORD}@${HOST}:${DB_PORT}/${DB_NAME}" -verbose up && go build -o ${BINARY} cmd/server/main.go && ./${BINARY}
