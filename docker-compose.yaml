@@ -8,6 +8,34 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      args:
+        DB_NAME: ${DB_NAME}
+        USER: ${USER}
+        PASSWORD: ${PASSWORD}
+        HOST: ${HOST}
+        DB_PORT: ${DB_PORT}
+        BINARY: ${BINARY}
+      environment:
+        - DSN=${DSN}
+        - PORT=${PORT}
+        - DB_DOCKER_CONTAINER=${DB_DOCKER_CONTAINER}
+        - DB_NAME=${DB_NAME}
+        - USER=${USER}
+        - PASSWORD=${PASSWORD}
+        - HOST=${HOST}
+        - DB_PORT=${DB_PORT}
+        - BINARY=${BINARY}
+        - FIREBASE_TYPE=${FIREBASE_TYPE}
+        - FIREBASE_PROJECT_ID=${FIREBASE_PROJECT_ID}
+        - FIREBASE_PRIVATE_KEY_ID=${FIREBASE_PRIVATE_KEY_ID}
+        - FIREBASE_PRIVATE_KEY=${FIREBASE_PRIVATE_KEY}
+        - FIREBASE_CLIENT_EMAIL=${FIREBASE_CLIENT_EMAIL}
+        - FIREBASE_CLIENT_ID=${FIREBASE_CLIENT_ID}
+        - FIREBASE_AUTH_URI=${FIREBASE_AUTH_URI}
+        - FIREBASE_TOKEN_URI=${FIREBASE_TOKEN_URI}
+        - FIREBASE_AUTH_PROVIDER_X509_CERT_URL=${FIREBASE_AUTH_PROVIDER_X509_CERT_URL}
+        - FIREBASE_CLIENT_X509_CERT_URL=${FIREBASE_CLIENT_X509_CERT_UR}
+        - FIREBASE_UNIVERSE_DOMAIN=${FIREBASE_UNIVERSE_DOMAIN}  
     depends_on:
       - db
     ports:
