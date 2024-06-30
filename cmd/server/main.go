@@ -22,10 +22,10 @@ type Application struct{
 }
 
 func(app *Application) Serve() error{
-	err := godotenv.Load()
-	if(err != nil){
-		log.Fatal("Error laoding .env file while serving")
-	}
+	//err := godotenv.Load() //dont need in railway
+	// if(err != nil){
+	// 	log.Fatal("Error laoding .env file while serving")
+	// }
 	port := os.Getenv("PORT")
 	fmt.Println("API is running on port", port)
 
