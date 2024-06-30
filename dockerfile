@@ -33,4 +33,4 @@ RUN go build -o ${BINARY} cmd/server/main.go
 
 #Railway doesn't support docker-compose so can't use wait-for-it, is compose is available, uncomment following CMD and comment the last CMD
 #CMD ./wait-for-it.sh db:5432 && migrate -path=migrations -database="postgres://${USER}:${PASSWORD}@${HOST}:${DB_PORT}/${DB_NAME}?sslmode=disable" -verbose up && ./${BINARY}
-CMD migrate -path=migrations -database="postgres://${USER}:${PASSWORD}@${HOST}:${DB_PORT}/${DB_NAME}?sslmode=disable" -verbose up && ./${BINARY}
+CMD migrate -path=migrations -database="postgres://${USER}:${PASSWORD}@${HOST}:${DB_PORT}/${DB_NAME}" -verbose up && ./${BINARY}
